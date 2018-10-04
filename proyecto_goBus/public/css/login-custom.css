@@ -182,7 +182,34 @@ p{
     font-size: 15px;
     cursor: pointer;
 }
+/*--------------------Registro Usuarios------------------*/
+.contenedor-registrarse{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 15%;
+}
 
+.boton-registrarse{
+    position: absolute;
+    top: 8px;
+    left: 60%;
+    width: 30%;
+    height: 38%;
+    background-color: rgb(23, 160, 34);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px; 
+    font-size: 15px;
+    cursor: pointer;
+}
+.anchor-registarse{
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
 /* -------------------- Pie de pagina -------------------- */
 
 footer p{

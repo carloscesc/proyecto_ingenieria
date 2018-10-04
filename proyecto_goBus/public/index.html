@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="shortcut icon" href="img/icon_bus.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/login-custom.css">
-    
+    <link rel="stylesheet" href="css/registro-usuarios.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <title>GoBus - Encuentra tu viaje</title>
     
 </head>
@@ -33,10 +35,74 @@
             <button type="button" class="boton-facebook" id="btn-facebook">Iniciar sesión con Facebook</button>   
             <i class="fab google-plus fa-google-plus-square"></i>
             <button type="button" class="boton-google" id="btn-google">Iniciar sesión con Google</button>
-       </div>
+        </div>
+        <div class="contenedor-registrarse">
+            <h6 class="anchor-registarse">¿Aùn no estàs en GOBUS?</h6>
+            <button type="button" class="boton-registrarse" data-toggle="modal" data-target="#myModal">Registrarse</button>
+        </div>
+       
     </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Regitraese en GOBUS</h4>
+                </div>
+
+            <div class="modal-body"> 
+                <div class="form-group">
+                    <input class="form-control" placeholder="Nombre Completo" name="reg-nom" id="reg-nom" type="text">
+                </div> 
+                <div class="form-group">
+                    <input class="form-control" placeholder="correo" name="reg-email" id="reg-email" type="email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="contraseña" name="reg-password" id="reg-password" type="password">
+                </div> 
+                <div class="form-group">
+                    <input class="form-control" placeholder="confirmar contraseña" name="conf-password" id="conf-password" type="password">
+                </div>   
+                <div class="form-group">
+                    <input class="form-control" placeholder="Telefono" name="reg-telefono" id="reg-telefono" type="text">
+                </div>    
+                <div class="form-group">
+                    <form action="">
+                        <select id="sl-gen" class="form-control">
+                            <option>Genero</option>
+                            <option value="1">Hombre</option>
+                            <option value="2">Mujer</option>
+                       </select>
+                    </form>   
+                </div>    
+                
+                <div class="form-group">
+                    <select id="sl-lug" class="form-control">
+                        <option>Pais</option>
+                        <option value="1">Honduras</option>
+                        <option value="2">Estados Unidos</option>
+                    </select>
+                </div>                       
+            </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Registrarse</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
     <footer>
         <p>© HAKANC - Devs 2018</p>
     </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
