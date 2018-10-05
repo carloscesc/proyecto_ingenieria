@@ -208,25 +208,20 @@ p{
     font-size: 17px;
 }
 
-
 .boton-registrarse{
     position: absolute;
     top: 8px;
     left: 60%;
     width: 30%;
-
     height: 58%;
     background-color: #CF2A27;
-
     height: 38%;
-    background-color: rgb(23, 160, 34);
     color: #FFFFFF;
     border: none;
     border-radius: 3px; 
     font-size: 15px;
     cursor: pointer;
 }
-
 
 .boton-registrarse:hover{
     background-color: #F40612;
