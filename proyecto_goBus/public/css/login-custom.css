@@ -192,6 +192,14 @@ p{
     font-size: 15px;
     cursor: pointer;
 }
+/*--------------------Registro Usuarios------------------*/
+.contenedor-registrarse{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 15%;
+}
+<<<<<<< HEAD
 
 /*--------------------Contenedor Usuarios------------------*/
 
@@ -209,19 +217,25 @@ p{
     font-size: 17px;
 }
 
+
 .boton-registrarse{
     position: absolute;
     top: 8px;
     left: 60%;
     width: 30%;
+
     height: 58%;
     background-color: #CF2A27;
+
+    height: 38%;
+    background-color: rgb(23, 160, 34);
     color: #FFFFFF;
     border: none;
     border-radius: 3px; 
     font-size: 15px;
     cursor: pointer;
 }
+
 
 .boton-registrarse:hover{
     background-color: #F40612;
@@ -252,6 +266,106 @@ h4{
     background-color: #F40612;
 }
 
+.boton-registrarse{
+    position: absolute;
+    top: 8px;
+    left: 60%;
+    width: 30%;
+    height: 38%;
+    background-color: rgb(23, 160, 34);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px; 
+    font-size: 15px;
+    cursor: pointer;
+}
+
+<<<<<<< HEAD
+/*--------------------Contenedor Usuarios------------------*/
+
+.contenedor-registrarse{
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    height: 10%;
+}
+
+.contenedor-registrarse p{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 17px;
+}
+=======
+.anchor-registarse{
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+=======
+>>>>>>> 20ffb0da6df8d77e55a5fb59538b22cfca6bbb23
+>>>>>>> 1f1902ffcf9114c7a4557f487b4693266ed3d502
+
+.boton-registrarse{
+    position: absolute;
+    top: 8px;
+    left: 60%;
+    width: 30%;
+<<<<<<< HEAD
+    height: 58%;
+    background-color: #CF2A27;
+=======
+    height: 38%;
+    background-color: rgb(23, 160, 34);
+>>>>>>> 1f1902ffcf9114c7a4557f487b4693266ed3d502
+    color: #FFFFFF;
+    border: none;
+    border-radius: 3px; 
+    font-size: 15px;
+    cursor: pointer;
+}
+<<<<<<< HEAD
+
+.boton-registrarse:hover{
+    background-color: #F40612;
+}
+
+/* -------------------- Modal -------------------- */
+
+.modal-header i{
+    font-size: 36px;
+    color: #CF2A27;
+}
+
+h4{
+    margin-right: 40%;
+}
+
+.close{
+    position: absolute;
+    top: 1%;
+    left: 92%;
+}
+
+.btn-success{
+    background-color: #CF2A27;
+}
+
+.btn-success:hover{
+    background-color: #F40612;
+}
+
+=======
+.anchor-registarse{
+    position: absolute;
+    top: 18%;
+    left: 10%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+>>>>>>> 1f1902ffcf9114c7a4557f487b4693266ed3d502
 /* -------------------- Pie de pagina -------------------- */
 
 footer p{
