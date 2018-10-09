@@ -11,39 +11,46 @@
         crossorigin="anonymous">
     <link rel="shortcut icon" href="img/icon_bus.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/login-custom.css">
+    <link rel="stylesheet" href="css/responsive-custom.css">
 
     <title>GoBus - Encuentra tu viaje</title>
     
 </head>
 <body>
     <a href="#" class="bus-1"><h1>GO<i class="fas fa-bus"></i>BUS</h1></a>
-    <!-- Contenedor Login -->
-    <div class="contenedor-login">
-        <!-- Contenedor Logo -->
-        <div class="contenedor-logo">
-            <center>
-                <i class="fas bus-2 fa-bus"></i>
-           </center>
-        </div>
-        <p>Inicia sesión</p>
-        <!-- Contenedor Ingreso -->
-        <div class="contenedor-ingreso">
-            <input type="email" class="correo" id="txt-correo-electronico" placeholder="Correo electrónico">
-            <input type="password" class="contrasena" id="txt-password" placeholder="Contraseña">
-        </div>
-        <a href="#" class="anchor-olvidaste" id="a-contraseña">¿Olvidaste tu contraseña?</a>
-        <button type="button" class="boton-sesion" id="btn-iniciar-sesion">Iniciar sesión</button> 
-        <!-- Contenedor Redes Sociales -->      
-        <div class="contenedor-ingreso-redes">
-            <i class="fab facebook fa-facebook-square"></i>
-            <button type="button" class="boton-facebook" id="btn-facebook">Iniciar sesión con Facebook</button>   
-            <i class="fab google-plus fa-google-plus-square"></i>
-            <button type="button" class="boton-google" id="btn-google">Iniciar sesión con Google</button>
-        </div>
-        <!-- Contenedor Registrarse -->
-        <div class="contenedor-registrarse">
-            <p>¿Aún no estás en GoBus?</p>
-            <button type="button" class="boton-registrarse" data-toggle="modal" data-target="#myModal">Registrarse</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-8">
+                <!-- Contenedor Login -->
+                <div class="contenedor-login">
+                    <!-- Contenedor Logo -->
+                    <div class="contenedor-logo">
+                        <center>
+                            <i class="fas bus-2 fa-bus"></i>
+                        </center>
+                    </div>
+                    <p>Inicia sesión</p>
+                    <!-- Contenedor Ingreso -->
+                    <div class="contenedor-ingreso">
+                        <input type="email" class="correo" id="txt-correo-electronico" placeholder="Correo electrónico">
+                        <input type="password" class="contrasena" id="txt-password" placeholder="Contraseña">
+                    </div>
+                    <a href="#" class="anchor-olvidaste" id="a-contraseña">¿Olvidaste tu contraseña?</a>
+                    <button type="button" class="boton-sesion" id="btn-iniciar-sesion">Iniciar sesión</button>
+                    <!-- Contenedor Redes Sociales -->
+                    <div class="contenedor-ingreso-redes">
+                        <i class="fab facebook fa-facebook-square"></i>
+                        <button type="button" class="boton-facebook" id="btn-facebook">Iniciar sesión con Facebook</button>
+                        <i class="fab google-plus fa-google-plus-square"></i>
+                        <button type="button" class="boton-google" id="btn-google">Iniciar sesión con Google</button>
+                    </div>
+                    <!-- Contenedor Registrarse -->
+                    <div class="contenedor-registrarse">
+                        <p>¿Aún no estás en GoBus?</p>
+                        <button type="button" class="boton-registrarse" data-toggle="modal" data-target="#myModal">Registrarse</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <footer>
