@@ -3,172 +3,75 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>GoBus</title>
 	<link rel="shortcut icon" href="img/icon_bus.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+     crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/landing-custom.css">
 
-	<link href="css/sticky-footer.css" rel="stylesheet">
-	<style>
-		body {
-			color: #00000;
-			background-image: url(img/fondo.jpg);
-			background-size: cover;
-			background-attachment: fixed;
-			border-top-width: 0px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-		}
-
-		.cuadro1 {
-			background-color: #151515;
-			border: 1px;
-			size: 0px;
-			border-style: solid;
-			border-color: #383737;
-			padding: 0px;
-			margin-left: 0px;
-			margin-right: 0px;
-			margin-bottom: 0px;
-			margin-top: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			padding-bottom: 0px;
-
-
-		}
-
-		.cuadro2 {
-			background-color: #0c0c0c;
-			border: 1px;
-			size: 150px;
-			border-style: solid;
-			border-color: #0c0c0c;
-			padding: 800px;
-		}
-
-		.container1 {
-			width: auto;
-			max-width: 980px;
-			padding: 0 15px;
-			padding-top: 0px;
-			padding-right: 15px;
-			padding-bottom: 0px;
-			padding-left: 15px;
-		}
-	</style>
+    <title>GoBus - Encuentra tu viaje</title>
 
 </head>
 
 <body>
 	<div>
-		<div class="navbar-header">
-			<a href="#" style="text-decoration: none">
-				<h1 class=" signupBasicHeader" style="color: rgb(199, 23, 31);font-weight: 900;font-size: 300%;border-top-width:10px;padding-top: 19px;margin-top: 0px;padding-left: 15px;">
-					Go
-					<img src="img/icon_bus.ico" alt="" width="60px"> Bus
-				</h1>
-			</a>
+		<div class="navbar-header">	
+            <a href="" class="bus-1"><h1>GO<i class="fas fa-bus"></i>BUS</h1></a>
 		</div>
-
-		<div id="navbar" class="navbar-collapse collapse" style="padding-top: 20px">
-			<form class="navbar-form navbar-right">
-				<button id="iniciar-secion" type="button" class="btn btn-lg btn btn-danger">Iniciar Sesion</button>
-			</form>
+		<div id="navbar" class="navbar-collapse collapse">
+			<a href="formularios/login.html" class="anchor-inicio"><button class="btn">Iniciar sesión</button></a>
 		</div>
 	</div>
-	<div style="margin-left: 20px; margin-top: 250px ;color: #FFFFFF;">
+	<div class="contenedor-eslogan">
 		<h1 style="font-size: 60px">Adquiere tu boleto!</h1>
-		<p style="  font-size: 20px">
-			<span style="color:#FFFFFF; ">DISFRUTA VIAJAR DONDE QUIERAS <br> Y CANCELA CUANDO QUIERAS.</span>
-		</p><br>
-		<!--<button type="button" class="btn btn-danger" style="font-size: 27px">Disfruta un mes gratis</button>-->
-		<button id="btn-disfruta-mes-gratis" type="button" class="btn btn-lg btn btn-danger" style="font-size: 27px">Registrate
-			gratis</button>
-
-
+		<p><span>DISFRUTA VIAJAR DONDE QUIERAS <br> Y CANCELA CUANDO QUIERAS.</span></p>
 	</div>
-
-	<section id="sin-compromisos">
-		<div class="cuadro1 ">
-			<div style=" max-width: 980px; align-items: center;margin-left: 200px; margin-right: 200px;">
+	<section>
+		<div class="cuadro1">
+			<div class="contenedor-info">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-						<div>;
-							<h1 style="color: #ffffff; ">Si piensas que GoBus no es lo tuyo, no hay problema. Sin compromisos utiliza nuestra
-								plataforma. y Cancela online cuando quieras.</h1>
-
-						</div>;
 						<div>
-							<button id="btn-disfruta" type="button" class="btn btn-lg btn btn-danger" style="font-size: 27px">Registrate gratis</button>
-
+							<h1>Si piensas que GoBus no es lo tuyo, no hay problema. Sin compromisos utiliza nuestra
+                                plataforma y cancela online cuando quieras.
+                            </h1>
+						</div>
+						<div>
+                            <a href="formularios/login.html" class="anchor-inicio-1">
+                                <button class="btn-1">Registrate gratis</button>
+                            </a>
 						</div>
 					</div>
-
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-						<div>;
+						<div>
 							<img src="img/aplicativo.png" class="img-responsive">
 						</div>
-					</div>;
-					<br><br>
-
-				</div>
-
-			</div>
-
-			<div>
-
-				<div style="margin-left: 100px;margin-right: 100px;margin-right: 100px">
-					<div class="footer-top" style="margin: 30px auto 0;width: 1050px;">
-						<div class="site-footer">
-							<p class="footer-top">
-								¿Tienes problemas? llama al &nbsp;<a style="text-decoration: none" class="footer-top-a" href="#">Número de soporte</a>
-							</p>
-
-							<table class="site-footer" style="border-color: #999797; border: 0px; width: 980px;">
-								<tr>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 1</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 2</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 3</td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 4</a></td>
-								</tr>
-
-								<tr>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 5</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 6</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 7</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 8</a></td>
-								</tr>
-								<tr>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 9</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 10</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 11</a></td>
-									<td style="color: #999797"><a href="#" style="text-decoration: none">sub-menú 12</a></td>
-								</tr>
-							</table><br><br>
-							<div>
-								<div class="glyphicon icon-globe">
-								</div>
-								<div>
-									<select class="form-control" style="padding-right: 0px; width: 134px;">
-										<option value="1">ESPAÑOL</option>
-										<option value="2">INGLES</option>
-									</select>
-								</div>
-							</div>
-							<p class="footer-top" style="margin-top: 20px; color: #999797; padding-top: 20px;">© HAKANC - Devs 2018</p>
-						</div>
 					</div>
-
+					<br><br>
 				</div>
-			</div>
+            </div>
 		</div>
-	</section>
+    </section>
+    <div class="contenedor-contacto">
+        <h2>Contáctanos</h2>
+        <div class="contenedor-seccion-contacto">
+            <input class="input-nombre" type="text" name="txt-nombre" id="txt-nombre" placeholder="Nombre"><br>
+            <input class="input-correo" type="email" name="txt-correo-electronico" id="txt-correo-electronico" placeholder="Correo Electrónico">
+            <textarea class="textarea-mensaje" placeholder="Mensaje"></textarea>
+        </div>
+        <button type="button" id="btn-enviar"><b>ENVIAR</b></button>
+    </div>
+    <div class="footer">
+        <div>
+            <select class="form-control">
+                <option value="1">ESPAÑOL</option>
+                <option value="2">INGLES</option>
+            </select>
+            <p class="footer-top">© HAKANC - Devs 2018</p>
+        </div>
+    </div>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-
 </body>
-
 </html>
