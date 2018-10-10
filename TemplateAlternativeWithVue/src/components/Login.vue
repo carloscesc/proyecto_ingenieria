@@ -11,7 +11,7 @@
                     <v-card flat>
                       <v-card-text>
                         <v-img :src="logo.path" height="55px" width="60px"></v-img>
-                        <span class="title">GoBus</span>
+                        <span class="title red--text text--darken-2 font-weight-black">GoBus</span>
                       </v-card-text>
                     </v-card>
                   </v-flex>
@@ -24,7 +24,9 @@
                     <v-text-field name="email" label="Correo electronico" type="text"></v-text-field>
                     <v-text-field id="password" name="password" label="Contraseña" type="password"></v-text-field>
                   </v-form>
-                  <span class="body-1">¿Olvidaste la contraseña?</span>
+                  <a href="#" class="d-flex router-link-active" style="text-decoration:none;">
+                    <span class="body-1">¿Olvidaste la contraseña?</span>
+                  </a>
                 </v-flex>
               </v-card-text>
               <v-card-actions>
@@ -57,6 +59,7 @@
 
 <script>
 export default {
+  name: 'Login',
   data: () => ({
     drawer: null,
     routes: {
@@ -64,9 +67,6 @@ export default {
     },
     logo: {
       path: '/static/doc-images/cards/icon_bus.ico.png'
-    },
-    background: {
-      path: '/static/doc-images/background.jpg'
     }
   }),
   props: {

@@ -203,6 +203,7 @@
 
 <script>
 export default {
+  name: 'Dashboard',
   data: () => ({
     dialog: false,
     drawer: null,
