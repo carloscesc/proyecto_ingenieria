@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/icon_bus.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/dashboard.css">
-
     <title>GoBus</title>
   </head>
   <body>
@@ -69,7 +68,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="perfil_usuario.html" class="nav-link text-light">
+                <a href="#" class="nav-link text-light">
                   <i class="fas fa-user"></i> Perfil de usuario
                 </a>
               </li>
@@ -106,43 +105,45 @@
             </ul>
           </div>
         </nav>
+
+
         <main class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-xl-9 bg-light mh-100 p-5">
           <div id="perfilEmpresa" class="container">
             <div class="col align-self-center">
-              <h3>Nombre empresa</h3>
-              <br/>
+              <h3>Perfil del Usuario</h3>
+              <br>
+              <div class="media">
+                <input type="text" class="form-control" placeholder="Nombre" style=" width: 326px;margin:0.8rem; pointer-events: none">
+                <input type="text" class="form-control" placeholder="Apellido" style=" width: 326px;margin:0.8rem; pointer-events: none">
+              </div>
+              <br>
+              <h3>Foto</h3><br>
               <div class="media">
                 <img class="mr-3 rounded-circle img-fluid" src="../img/empresa.svg" height="150px" width="150px">
-                <div class="media-body">
-                  <h5 class="mt-0 ml-2">Descripcion</h5>
-                  <span class="ml-2">                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+                <div class="media-body" style="margin: 2.5rem 0rem 2.5rem 5rem;">
+                    <button type="button" class="btn btn-primary" name="Cambiar Foto" style="margin: 1rem">Cambiar Foto</button>
+                    <button type="button" class="btn btn-danger" style="margin: 1rem">Cambiar Configuracion</button>
                 </div>
-              </div>
-              <h5 class="mt-4 ml-3">Ubicacion</h5>
-              <span class="ml-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+              </div><br>
+              <h4 class="mt-0 ml-2">Nombre de Usuario</h4>
+              <p class="ml-2">
+                <div class="media">
+                    <span style="padding: 0.5rem">www.gobus.com/ 
+                    </span>
+                    <input type="text"class="form-control" placeholder="ejemplo" style="pointer-events:none; width: 200px">
+                </div>
+              </p><br>
+              <h3 class="mt-0 ml-2">Acerca de tí</h3>
+              <p class="ml-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
+                Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p><br>
+              <h3 class="mt-0 ml-2">Ubicación</h3>
+              <p class="ml-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
+                Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
             </div>
           </div>
         </main>
-    </div>
-
-    <!-- modalEmpresas-->
-    <div class="modal fade" id="empresas" tabindex="-1" role="dialog" aria-labelledby="empresasModal" aria-hidden="true">
-      <div class="container-fluid">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Seleciona una empresa</h5>
-            </div>
-            <div class="modal-body">
-              <div class="container-fluid">
-                <div class="row" id="empresasContainer">
-                  <!-- empresas; revisar el dashboard.js-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Optional JavaScript -->
