@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
  });
 
  app.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/profile',
+  successRedirect: '/dashboard',
   failureRedirect: '/login',
   failureFlash: true
  }),
@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
  });
 
  app.post('/signup', passport.authenticate('local-signup', {
-  successRedirect: '/profile',
+  successRedirect: '/menu',
   failureRedirect: '/login',
   failureFlash: true
  }));
@@ -36,6 +36,12 @@ module.exports = function(app, passport) {
    user:req.user
   });
  });
+
+ app.get('/menu', isLoggedIn, function(req, res){
+    res.render('dashboard.ejs', {
+     user:req.user
+    });
+   });
 
 app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs', { message: req.flash('loginMessag') });

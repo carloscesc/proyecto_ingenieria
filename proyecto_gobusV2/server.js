@@ -6,7 +6,7 @@ var morgan = require('morgan');
 var app = express();
 
 app.use('/public', express.static('public'));
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8011;
 
 var passport = require('passport');
 var flash = require('connect-flash');
