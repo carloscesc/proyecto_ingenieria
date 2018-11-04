@@ -301,8 +301,6 @@ CREATE TABLE IF NOT EXISTS `gobus`.`tbl_automotor_ruta` (
   `cod_automotor` INT NOT NULL,
   `cod_ruta` INT NOT NULL,
   PRIMARY KEY (`cod_ruta_bus`, `cod_automotor`, `cod_ruta`),
-  INDEX `fk_automotor_ruta` (`cod_ruta` ASC) VISIBLE,
-  INDEX `fk_automotor_ruta` (`cod_automotor` ASC) VISIBLE,
   CONSTRAINT `fk_bus_ruta`
     FOREIGN KEY (`cod_automotor`)
     REFERENCES `gobus`.`tbl_Automotor` (`cod_bus`)
