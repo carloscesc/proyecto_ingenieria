@@ -47,11 +47,15 @@ app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs', { message: req.flash('loginMessag') });
 });
 
- app.get('/logout', function(req,res){
+app.get('/logout', function(req,res){
   req.logout();
   res.redirect('/login');
  })
 };
+
+app.get('/dashboard/travel', function (req, res) {
+    res.render('travel.ejs', { message: 'aqui la data' });
+});
 
 function isLoggedIn(req, res, next){
  if(req.isAuthenticated())
