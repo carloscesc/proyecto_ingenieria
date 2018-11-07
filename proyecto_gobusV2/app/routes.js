@@ -31,12 +31,6 @@ module.exports = function(app, passport) {
   failureFlash: true
  }));
 
- app.get('/profile', isLoggedIn, function(req, res){
-  res.render('profile.ejs', {
-   user:req.user
-  });
- });
-
  app.get('/menu', isLoggedIn, function(req, res){
     res.render('dashboard.ejs', {
      user:req.user
@@ -47,15 +41,26 @@ app.get('/dashboard', function (req, res) {
     res.render('dashboard.ejs', { message: req.flash('loginMessag') });
 });
 
-app.get('/logout', function(req,res){
+    var mysql = require('mysql');
+    var dbconfig = require('../config/database');
+    var connection = mysql.createConnection(dbconfig.connection);
+    connection.query('USE ' + dbconfig.database);
+
+    app.get('/profile', function (req, res) {
+        connection.query("SELECT * FROM tbl_usuarios", function (err, resul) {
+            console.log(resul[0]);
+            res.render('profile.ejs', {
+                usuarios: resul,
+                user: req.user
+            });
+        });
+    });
+
+ app.get('/logout', function(req,res){
   req.logout();
   res.redirect('/login');
  })
 };
-
-app.get('/dashboard/travel', function (req, res) {
-    res.render('travel.ejs', { message: 'aqui la data' });
-});
 
 function isLoggedIn(req, res, next){
  if(req.isAuthenticated())
