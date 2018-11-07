@@ -31,11 +31,6 @@ module.exports = function(app, passport) {
   failureFlash: true
  }));
 
- app.get('/profile', isLoggedIn, function(req, res){
-  res.render('profile.ejs', {
-   user:req.user
-  });
- });
 
 app.get('/menu', isLoggedIn, function(req, res){
     res.render('dashboard.ejs', {
@@ -43,7 +38,7 @@ app.get('/menu', isLoggedIn, function(req, res){
     });
 });
 
-
+//aqui se hace la consulta a la base de datos para mostrar las empresas
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
 var connection = mysql.createConnection(dbconfig.connection);
@@ -58,6 +53,21 @@ app.get('/dashboard', function (req, res) {
             user:req.user
         });
     });
+});
+
+app.get('/profile', function (req, res) {
+    connection.query("SELECT * FROM tbl_usuarios", function (err, resul) {
+        console.log(resul[0]);
+        res.render('profile.ejs', {
+            usuarios: resul,
+            user: req.user
+        });
+    });
+});
+
+
+app.get('/travel', function (req, res) {
+    res.render('travel.ejs', { message: 'aqui la data' });
 });
 
  app.get('/logout', function(req,res){

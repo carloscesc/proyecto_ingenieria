@@ -85,7 +85,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link text-light">
+                <a href="/travel" class="nav-link text-light">
                   <i class="fas fa-shopping-cart"></i> Comprar Ticket
                 </a>
               </li>
@@ -109,9 +109,10 @@
               <h3 id="h3"></h3>
               <br/>
               <div id="div2" class="media">
+              </div><br><br>
+              <div style="text-align:right" id="divRutas">
 
-                  
-              </div>
+              </div><br>
               <h5 class="mt-4 ml-3">Ubicacion</h5>
               <div style="text-align:center" id="ubicacion">
 
@@ -154,6 +155,45 @@
         </div>
       </div>
     </div>
+    <!--modal precios-->
+    <div id="modalrutas" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Rutas </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Ruta</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Comprar</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr>
+                  <td id="nombre_ruta"></td>
+                  <td id="precio_ruta"></td>
+                  <td><input type="button" id="btnComprar" class="btn btn-danger" value="Comprar"></td>
+                </tr>
+                <tr>
+                  <td id="nombre_ruta1"></td>
+                  <td id="precio_ruta1"></td>
+                  <td><input type="button" id="btnComprar" class="btn btn-danger" value="Comprar"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -165,6 +205,7 @@
       function mostrar1(){
         document.getElementById("h3").innerHTML = "<%= empresas[0].nombre_empresa %>";
         document.getElementById("div2").innerHTML = '<img class="mr-3 rounded-circle img-fluid" src="../public/img/<%= empresas[0].cod_empresa %>.jpg" height="150px" width="150px"><div class="media-body"><h5 class="mt-0 ml-2">Descripcion</h5><span class="ml-2"> <%= empresas[0].descripcion %> </span></div>';        
+        document.getElementById("divRutas").innerHTML= '<div><input type="button" id="btnr<%= empresas[0].cod_empresa %>" class="btn btn-success" data-toggle="modal" data-target="#modalrutas" value="Ver rutas" onclick="rutas<%= empresas[0].cod_empresa %>();" ></div';
         document.getElementById("ubicacion").innerHTML ='<iframe src="<%= empresas[0].ubicacion %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
         document.getElementById("empresa1").style.display = "block";
       }
@@ -172,20 +213,47 @@
       function mostrar2(){
         document.getElementById("h3").innerHTML = "<%= empresas[1].nombre_empresa %>";
         document.getElementById("div2").innerHTML = '<img class="mr-3 rounded-circle img-fluid" src="../public/img/<%= empresas[1].cod_empresa %>.jpg" height="150px" width="150px"><div class="media-body"><h5 class="mt-0 ml-2">Descripcion</h5><span class="ml-2"><%= empresas[1].descripcion %></span></div>';        
+        document.getElementById("divRutas").innerHTML= '<div><input type="button" id="btnr<%= empresas[1].cod_empresa %>" class="btn btn-success" data-toggle="modal" data-target="#modalrutas" value="Ver rutas" onclick="rutas<%= empresas[1].cod_empresa %>();" ></div';
         document.getElementById("ubicacion").innerHTML ='<iframe src="<%= empresas[1].ubicacion %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
         document.getElementById("empresa1").style.display = "block";
       }
       function mostrar3(){
         document.getElementById("h3").innerHTML = "<%= empresas[2].nombre_empresa %>";
         document.getElementById("div2").innerHTML = '<img class="mr-3 rounded-circle img-fluid" src="../public/img/<%= empresas[2].cod_empresa %>.jpg" height="150px" width="150px"><div class="media-body"><h5 class="mt-0 ml-2">Descripcion</h5><span class="ml-2"><%= empresas[2].descripcion %> </span></div>';        
+        document.getElementById("divRutas").innerHTML= '<div><input type="button" id="btnr<%= empresas[2].cod_empresa %>" class="btn btn-success" data-toggle="modal" data-target="#modalrutas" value="Ver rutas" onclick="rutas<%= empresas[2].cod_empresa %>();"></div';
         document.getElementById("ubicacion").innerHTML ='<iframe src="<%= empresas[2].ubicacion %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
         document.getElementById("empresa1").style.display = "block";
       }
       function mostrar4(){
         document.getElementById("h3").innerHTML = "<%= empresas[3].nombre_empresa %>";
         document.getElementById("div2").innerHTML = '<img class="mr-3 rounded-circle img-fluid" src="../public/img/<%= empresas[3].cod_empresa %>.jpg" height="150px" width="150px"><div class="media-body"><h5 class="mt-0 ml-2">Descripcion</h5><span class="ml-2"><%= empresas[3].descripcion %> </span></div>';        
+        document.getElementById("divRutas").innerHTML= '<div><input type="button" id="btnr<%= empresas[3].cod_empresa %>" class="btn btn-success" data-toggle="modal" data-target="#modalrutas" value="Ver rutas" onclick="rutas<%= empresas[3].cod_empresa %>();"></div';
         document.getElementById("ubicacion").innerHTML ='<iframe src="<%= empresas[3].ubicacion %>" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
         document.getElementById("empresa1").style.display = "block";
+      }
+      function rutas1(){
+        document.getElementById("nombre_ruta").innerHTML="Tegucigalpa-Catacamas";
+        document.getElementById("precio_ruta").innerHTML="L. 137";
+        document.getElementById("nombre_ruta1").innerHTML="Tegucigalpa-Juticalpa";
+        document.getElementById("precio_ruta1").innerHTML="L. 109";
+      }
+      function rutas2(){
+        document.getElementById("nombre_ruta").innerHTML="Tegucigalpa-Ceiba";
+        document.getElementById("precio_ruta").innerHTML="L. 300";
+        document.getElementById("nombre_ruta1").innerHTML="Tegucigalpa-Tela";
+        document.getElementById("precio_ruta1").innerHTML="L. 250";
+      }
+      function rutas3(){
+        document.getElementById("nombre_ruta").innerHTML="Tegucigalpa-SPS";
+        document.getElementById("precio_ruta").innerHTML="L. 220";
+        document.getElementById("nombre_ruta1").innerHTML="Tegucigalpa-Tocoa";
+        document.getElementById("precio_ruta1").innerHTML="L. 350";
+      }
+      function rutas4(){
+        document.getElementById("nombre_ruta").innerHTML="Tegucigalpa-SPS";
+        document.getElementById("precio_ruta").innerHTML="L. 250";
+        document.getElementById("nombre_ruta1").innerHTML="Tegucigalpa-Copan";
+        document.getElementById("precio_ruta1").innerHTML="L. 450";
       }
     </script>
 
