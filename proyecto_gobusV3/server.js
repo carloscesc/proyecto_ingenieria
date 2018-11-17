@@ -16,15 +16,15 @@ require('./config/passport')(passport);
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
- extended: true
+    extended: true
 }));
 
 app.set('view engine', 'ejs');
 
 app.use(session({
- secret: 'justasecret',
- resave:true,
- saveUninitialized: true
+    secret: 'justasecret',
+    resave:true,
+    saveUninitialized: true
 }));
 
 app.use(passport.initialize());

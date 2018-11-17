@@ -41,6 +41,7 @@ app.get('/menu', isLoggedIn, function(req, res){
 //aqui se hace la consulta a la base de datos para mostrar las empresas
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
+var bcrypt = require('bcrypt-nodejs');
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
 
@@ -65,6 +66,15 @@ app.get('/profile', function (req, res) {
     });
 });
 
+app.post("/guardar", function (req, res) {
+    connection.query("INSERT INTO tbl_usuarios(username, password, acerca, ubicacion) VALUES (?,?,?,?)",
+        [req.body.username, bcrypt.hashSync(req.body.password, null, null), req.body.acerca, req.body.ubicacion],
+        function (error, data, fields) {
+            res.send(data);
+            res.end();
+        }
+    );
+});
 
 app.get('/travel', function (req, res) {
     res.render('travel.ejs', { message: 'aqui la data' });
