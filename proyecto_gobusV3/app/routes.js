@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
  });
 
  app.post('/login', passport.authenticate('local-login', {
-  successRedirect: '/dashboard',
+  successRedirect: '/localizacion',
   failureRedirect: '/login',
   failureFlash: true
  }),
@@ -34,6 +34,16 @@ module.exports = function(app, passport) {
 
 app.get('/menu', isLoggedIn, function(req, res){
     res.render('dashboard.ejs', {
+     user:req.user
+    });
+});
+app.get('/localizacion', isLoggedIn, function(req, res){
+    res.render('Localizacion.ejs', {
+     user:req.user
+    });
+});
+app.get('/Regislocalizacion', function(req, res){
+    res.render('Localizacion.ejs', {
      user:req.user
     });
 });
@@ -65,15 +75,38 @@ app.get('/profile', function (req, res) {
         });
     });
 });
+app.get('/registroUsuarios', function(req, res){
+    res.render('registro-usuarios.ejs');
+    res.end();
+});
+
 
 app.post("/guardar", function (req, res) {
-    connection.query("INSERT INTO tbl_usuarios(username, password, acerca, ubicacion) VALUES (?,?,?,?)",
-        [req.body.username, bcrypt.hashSync(req.body.password, null, null), req.body.acerca, req.body.ubicacion],
+    connection.query(`
+        INSERT INTO tbl_persona (cod_genero,telefono, nombre_persona, apellido_persona) 
+        VALUES (?,?,?,?)`,
+        [req.body.genero,req.body.telefono, req.body.nombre, req.body.apellidos],
         function (error, data, fields) {
             res.send(data);
             res.end();
         }
     );
+    
+});
+app.post("/guardarUsua", function (req, res) {
+    console.log(req.body.id, req.body.password,req.body.email);
+
+    connection.query(`
+        INSERT INTO tbl_usuario (id, username, password) 
+        VALUES (?,?,?)`,
+        [req.body.id, req.body.email, bcrypt.hashSync(req.body.password, null, null)],
+        function (error, data, fields) {
+            res.send(data);
+            //console.log(data);
+            res.end();
+        }
+    );
+    
 });
 
 app.get('/travel', function (req, res) {
@@ -95,12 +128,5 @@ function isLoggedIn(req, res, next){
  res.redirect('/');
 }
 
-/*require('../config/passport.js');
-app.get('/menu',  function(req, res){
-    connection.query("SELECT * FROM tbl_empresa_transporte",
-        function(err, resul){
-            res.render('dashboard.ejs', {
-                empresas: resul
-        });
-    });
-});*/
+
+
