@@ -63,10 +63,10 @@
             <form>
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu Ubicación...">
+                  <input type="text" id="txt-buscar" class="form-control form-control-lg" placeholder="Ingresa tu Ubicación...">
                 </div>
                 <div class="col-12 col-md-3">
-                  <button type="button" class="btn btn-block btn-lg btn-primary" onclick=" buscar();">Buscar</button>
+                  <button type="button" id="btn-buscar" class="btn btn-block btn-lg btn-primary">Buscar</button>
                 </div>
               </div>
             </form>
@@ -74,6 +74,20 @@
         </div>
       </div>
     </header>
+    <!-- <table>
+      <thead>
+          <tr>
+              <th>Nombre</th>
+          </tr>
+      </thead>
+      <tbody id="contenido-empresas">
+          
+      </tbody>
+    </table> -->
+    <div class="container division">
+      <div  class="row" id="contenedor-empresas"></div>
+      
+    </div>
 
     <!-- Footer -->
     <footer class="footer bg-light">
@@ -125,6 +139,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/jquery.min.js"></script>
     <script src="../public/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/js/controlador.js"></script>
     <script>
       function buscar(){
           location.href="/dashboard"

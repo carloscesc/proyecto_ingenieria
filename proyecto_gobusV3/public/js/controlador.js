@@ -61,22 +61,88 @@ $(document).ready(function(){
             document.getElementById("slgen").style.borderColor='red';
         }
 
-        
-        
-        /*$.ajax({
-            url: "/guardarUsua",
-            method: "POST",
-            data: ingreso_usuario,
-            dataType: "json",
-            success: function (respuesta) {
-                console.log(respuesta);
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });*/
 
 
     });
+
+    // **********************************************************************************
+
+    $("#btn-buscar").click(function(){
+        var parametros = `buscar=${$("#txt-buscar").val()}`;
+        console.log(parametros);
+        $.ajax({
+            url: "/buscar",
+            method: "POST",
+            data: parametros,
+            dataType: "json",
+            success: function(res){
+                console.log(res);
+                $('#contenedor-empresas').html("");
+                $("#txt-buscar").val("");
+                res.forEach(element => {
+                    $("#contenedor-empresas").append(
+                        `<div class="col-lg-4 text-center mb-4 col-lg-4 col-md-4 col-sm-4">
+                            <div class="border border-info rounded">
+                            <div>
+                                <img class="img responsive" src="../public/img/${element.cod_empresa}.jpg">
+                                <h3>${element.nombre_empresa}</h3>
+                                <div class="col-lg-12">
+                                <button class="btn btn-primary" type="button" id="${element.cod_empresa}">Rutas</button>
+                                <a class="btn btn-primary" href="/dashboard/${element.cod_empresa}">Ver descripcion</a>
+                                
+                                </div>
+                            </div><br>
+                            <div >
+                                <table class="table">
+                                    <tbody id="tbl${element.cod_empresa}">
+                                        
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>`
+
+                    )
+                });
+
+            },
+            error: function(error){
+                console.error(error);
+            }
+        });
+    });
+
+
+    // ***************************************************
+    $('#contenedor-empresas').click(function(e){
+        var id = e.target.id;
+        // alert(id); 
+        var parametros = `id=${id}`;
+        console.log(parametros);
+        $.ajax({
+            url: "/rutas",
+            dataType: "json",
+            method: "POST",
+            data: parametros, 
+            success: function(res){
+                console.log(res[1].cod_empresa);
+                $("#tbl"+`${res[1].cod_empresa}`).html("");
+                res.forEach(element => {
+                    $("#tbl"+`${element.cod_empresa}`).append(
+                        `<tr>
+                            <td>${element.Origen}</td>
+                            <td>${element.Destino}</td>
+                        </tr>
+                        `
+                    )
+                });
+
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
+    });
+
 });
             
