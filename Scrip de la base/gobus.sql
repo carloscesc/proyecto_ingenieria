@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2018 a las 02:11:32
+-- Tiempo de generación: 22-11-2018 a las 11:04:14
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -19,6 +19,51 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gobus`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `new_rutas`
+--
+
+CREATE TABLE `new_rutas` (
+  `id_destino` int(6) UNSIGNED NOT NULL,
+  `destino` varchar(50) NOT NULL,
+  `hora_salida` time NOT NULL,
+  `servicio` varchar(15) DEFAULT NULL,
+  `hora_llegada` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `new_rutas`
+--
+
+INSERT INTO `new_rutas` (`id_destino`, `destino`, `hora_salida`, `servicio`, `hora_llegada`) VALUES
+(1, 'TGA-NCA', '12:05:08', 'lujo', '15:11:13'),
+(3, 'TGA--CAT', '07:00:00', 'lujo', '09:30:00'),
+(4, 'TGA--CAT', '13:15:16', 'LUJO', '16:20:09'),
+(5, 'TGA--CAT', '08:05:00', 'lujo', '12:00:00'),
+(6, 'JPA--TGA', '13:30:00', 'plus/lujo', '17:00:00'),
+(7, 'JPA--TGA', '10:00:00', 'lujo', '13:00:00'),
+(8, 'TGA--SIG', '07:00:00', 'Lujo', '09:20:00'),
+(9, 'TGA--SIG', '02:00:00', 'Lujo', '05:00:00'),
+(10, 'TGA--SIG', '15:00:00', 'Lujo', '18:20:00'),
+(11, 'TGA--SIG', '02:00:00', 'Lujo', '05:00:00'),
+(12, 'CBA--TGA', '02:00:00', 'Lujo', '05:00:00'),
+(13, 'CBA--TGA', '05:00:00', 'Lujo', '08:00:00'),
+(14, 'TGA--SPS', '10:00:00', 'Lujo', '13:00:00'),
+(15, 'TGA--SPS', '09:00:00', 'Lujo', '11:00:00'),
+(16, 'TGA--SIG', '15:00:00', 'Lujo', '17:00:00'),
+(17, 'TGA--SIG', '08:00:00', 'Lujo', '10:00:00'),
+(18, 'TGA--SPS', '11:00:00', 'Lujo', '13:00:00'),
+(19, 'TGA--SPS', '20:00:00', 'Lujo', '23:00:00'),
+(20, 'TGA--SLO', '08:00:00', 'Lujo/plus', '11:00:00'),
+(21, 'TGA--SLO', '14:00:00', 'normal', '17:00:00'),
+(22, 'NCA--TGA', '08:00:00', 'Lujo', '10:29:00'),
+(23, 'NCA--TGA', '13:20:00', 'Plus', '16:00:00'),
+(24, 'CAT--TGA', '08:00:00', 'lujo/plus', '10:11:00'),
+(25, 'CAT--TGA', '19:00:00', 'plus', '22:00:00'),
+(26, 'TGA--NCA', '08:00:00', 'Lujo', '10:00:00');
 
 -- --------------------------------------------------------
 
@@ -59,10 +104,41 @@ CREATE TABLE `tbl_boleto` (
   `cod_ruta` int(11) NOT NULL,
   `cod_marca` int(11) NOT NULL,
   `precio` float NOT NULL,
-  `fecha_vencimiento` date NOT NULL,
+  `fecha_vencimiento` varchar(20) NOT NULL,
   `impuesto` float DEFAULT NULL,
   `numero_asiento` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_compra`
+--
+
+CREATE TABLE `tbl_compra` (
+  `cod_compra` int(11) NOT NULL,
+  `cod_usuario` int(11) DEFAULT NULL,
+  `cod_ruta` int(11) DEFAULT NULL,
+  `fecha_vencimiento` varchar(45) DEFAULT NULL,
+  `impuesto` float DEFAULT NULL,
+  `precio` float DEFAULT NULL,
+  `numero_tarjeta` int(30) NOT NULL,
+  `csv` int(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_compra`
+--
+
+INSERT INTO `tbl_compra` (`cod_compra`, `cod_usuario`, `cod_ruta`, `fecha_vencimiento`, `impuesto`, `precio`, `numero_tarjeta`, `csv`) VALUES
+(1, 44, 5, '12/12', 5, 56, 12345678, 0),
+(2, 44, 5, '12/19', 1, 34, 1234567, 0),
+(3, 44, 3, '12/18', NULL, NULL, 1234567, 1234),
+(4, 44, 1, '31/12', NULL, NULL, 12345, 1223),
+(5, 44, 5, '12/13', NULL, NULL, 12345, 1212),
+(6, 44, 7, '12/19', NULL, NULL, 1234, 4567),
+(7, 44, 1, '12/12', NULL, NULL, 12346, 1234),
+(8, 44, 4, '12/18', NULL, NULL, 123465678, 1235);
 
 -- --------------------------------------------------------
 
@@ -205,6 +281,13 @@ CREATE TABLE `tbl_marca_tarjeta` (
   `descripcion` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `tbl_marca_tarjeta`
+--
+
+INSERT INTO `tbl_marca_tarjeta` (`cod_marca`, `nombre_marca`, `descripcion`) VALUES
+(1, 'VISA', 'ES UNA TARJETA DE DEBITO/CREDITO');
+
 -- --------------------------------------------------------
 
 --
@@ -244,7 +327,8 @@ INSERT INTO `tbl_persona` (`cod_persona`, `cod_genero`, `cod_lugar`, `telefono`,
 (41, 1, NULL, '97654534', 'carlos', 'lopez', NULL),
 (42, 1, NULL, '97654534', 'carlos', 'lopez', NULL),
 (43, 1, NULL, '97654534', 'Fran', 'lopez', NULL),
-(44, 2, NULL, '97654534', 'Ana', 'Padilla', NULL);
+(44, 2, NULL, '97654534', 'Ana', 'Padilla', NULL),
+(45, 1, NULL, '98564325', 'pedro', 'lopez', NULL);
 
 -- --------------------------------------------------------
 
@@ -257,21 +341,23 @@ CREATE TABLE `tbl_ruta` (
   `tbl_empleado_cod_persona` int(11) DEFAULT NULL,
   `cod_hora` int(11) NOT NULL,
   `cod_lugar_origen` int(11) NOT NULL,
-  `cod_lugar_destino` int(11) NOT NULL
+  `cod_lugar_destino` int(11) NOT NULL,
+  `Duracion` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `tbl_ruta`
 --
 
-INSERT INTO `tbl_ruta` (`cod_ruta`, `tbl_empleado_cod_persona`, `cod_hora`, `cod_lugar_origen`, `cod_lugar_destino`) VALUES
-(1, NULL, 1, 8, 1),
-(2, NULL, 2, 8, 2),
-(3, NULL, 3, 8, 2),
-(4, NULL, 5, 8, 2),
-(5, NULL, 1, 8, 6),
-(6, NULL, 3, 8, 4),
-(7, NULL, 5, 8, 3);
+INSERT INTO `tbl_ruta` (`cod_ruta`, `tbl_empleado_cod_persona`, `cod_hora`, `cod_lugar_origen`, `cod_lugar_destino`, `Duracion`) VALUES
+(1, NULL, 1, 8, 1, 5),
+(2, NULL, 2, 8, 2, 6),
+(3, NULL, 3, 2, 8, 5),
+(4, NULL, 5, 8, 2, 4),
+(5, NULL, 1, 8, 6, 5),
+(6, NULL, 3, 8, 4, 5),
+(7, NULL, 5, 8, 3, 6),
+(8, NULL, 3, 2, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -310,6 +396,26 @@ CREATE TABLE `tbl_sucursal` (
   `descripcion` varchar(200) DEFAULT NULL,
   `tbl_lugar_cod_lugar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_sucursal`
+--
+
+INSERT INTO `tbl_sucursal` (`cod_sucursal`, `cod_empresa`, `descripcion`, `tbl_lugar_cod_lugar`) VALUES
+(1, 1, NULL, 1),
+(2, 1, NULL, 2),
+(3, 1, NULL, 8),
+(4, 2, NULL, 8),
+(5, 2, NULL, 3),
+(6, 2, NULL, 5),
+(7, 2, NULL, 6),
+(8, 3, NULL, 8),
+(9, 3, NULL, 6),
+(10, 3, NULL, 7),
+(11, 4, NULL, 3),
+(12, 4, NULL, 5),
+(13, 4, NULL, 6),
+(14, 4, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -351,11 +457,18 @@ INSERT INTO `tbl_usuario` (`id`, `username`, `password`, `acerca`, `ubicacion`) 
 (41, 'carlos@yahoo.com', '$2a$10$tWS7GcK5axsHeDN5lSLv2eJ89JOog94Gn0yaY7zPk0uEWBUKdE3ti', NULL, NULL),
 (42, 'carlos2@yahoo.com', '$2a$10$Pp/ozIyANOHN/xYcwNAE6OzPaz7tKjBWlObBMAGSeqUo3lJUJpggq', NULL, NULL),
 (43, 'fran@yahoo.com', '$2a$10$rZa/MFPoviaDBoggZWw.2uk9FP0ilcDviyb6xieEh32vbaGPpFotq', NULL, NULL),
-(44, 'ana@yahoo.com', '$2a$10$2gGW7weoxck1VXKLos1O8eXU4AwDwRsiD7370Iktll/BLa36rZMey', 'Estudiante de la carrera de Ingenieria en Sistemas', 'Residencial Plaza, bloque 5, peatonal 7');
+(44, 'ana@yahoo.com', '$2a$10$2gGW7weoxck1VXKLos1O8eXU4AwDwRsiD7370Iktll/BLa36rZMey', 'Estudiante de la carrera de Ingenieria en Sistemas', 'Residencial Plaza, bloque 5, peatonal 7'),
+(45, 'pedro@yahoo.com', '$2a$10$uXUUvstacUDDxP6N03dayesXNmt6cWFfnw0KVf5d6/eIpJUkYE8zm', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `new_rutas`
+--
+ALTER TABLE `new_rutas`
+  ADD PRIMARY KEY (`id_destino`);
 
 --
 -- Indices de la tabla `tbl_automotor`
@@ -380,6 +493,14 @@ ALTER TABLE `tbl_boleto`
   ADD KEY `fk_tbl_usuario_tbl_ruta` (`cod_usuario`),
   ADD KEY `fk_tbl_usuario_tbl_ruta1` (`cod_ruta`),
   ADD KEY `fk_tbl_pago_tbl_marca_tarjeta1` (`cod_marca`);
+
+--
+-- Indices de la tabla `tbl_compra`
+--
+ALTER TABLE `tbl_compra`
+  ADD PRIMARY KEY (`cod_compra`),
+  ADD KEY `cod_usuario_idx` (`cod_usuario`),
+  ADD KEY `cod_ruta_idx` (`cod_ruta`);
 
 --
 -- Indices de la tabla `tbl_empleado`
@@ -480,6 +601,11 @@ ALTER TABLE `tbl_usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `new_rutas`
+--
+ALTER TABLE `new_rutas`
+  MODIFY `id_destino` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
 -- AUTO_INCREMENT de la tabla `tbl_automotor`
 --
 ALTER TABLE `tbl_automotor`
@@ -494,6 +620,11 @@ ALTER TABLE `tbl_automotor_ruta`
 --
 ALTER TABLE `tbl_boleto`
   MODIFY `cod_marca` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `tbl_compra`
+--
+ALTER TABLE `tbl_compra`
+  MODIFY `cod_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tbl_empleado`
 --
@@ -528,17 +659,17 @@ ALTER TABLE `tbl_lugar`
 -- AUTO_INCREMENT de la tabla `tbl_marca_tarjeta`
 --
 ALTER TABLE `tbl_marca_tarjeta`
-  MODIFY `cod_marca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `tbl_persona`
 --
 ALTER TABLE `tbl_persona`
-  MODIFY `cod_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `cod_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de la tabla `tbl_ruta`
 --
 ALTER TABLE `tbl_ruta`
-  MODIFY `cod_ruta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod_ruta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tbl_ruta_x_empresa`
 --
@@ -548,7 +679,7 @@ ALTER TABLE `tbl_ruta_x_empresa`
 -- AUTO_INCREMENT de la tabla `tbl_sucursal`
 --
 ALTER TABLE `tbl_sucursal`
-  MODIFY `cod_sucursal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipo_empleado`
 --
@@ -558,7 +689,7 @@ ALTER TABLE `tbl_tipo_empleado`
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- Restricciones para tablas volcadas
 --
