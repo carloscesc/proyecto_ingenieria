@@ -1,15 +1,22 @@
-.carrruseltext{
-    color: black;
-}
-
-.bg-dark {
-    background-color: rgb(18, 124, 189)!important;
-}
 
 .navbarnav2{
     margin-right: 38%;
 }
 
+.encabezado {
+    background-color: #0069D9!important;
+    color: white;
+    padding-bottom: 3px;
+    padding-top: 3px;
+
+}
+.text1{
+    color:white!important;
+}
+.text1:hover { 
+    text-decoration: underline;
+    color: black!important;
+}
 .imagen:hover{
     border-radius:50%;
     -webkit-border-radius:50%;
@@ -28,13 +35,22 @@
 }
 
 .fondoLogin{
-    background-color: rgb(233, 236, 239);
+    background-color: white;
+}
+
+.taman{
+    
+    width: 385px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .jumbotron{
     background-color: rgb(255, 255, 255);
     padding-top: 30px;
     padding-bottom: 30px;
+    border: silver 2px solid;
 }
 
 .bg-dark1 {

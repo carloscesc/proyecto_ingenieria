@@ -5,29 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Go Bus</title>
     <link rel="shortcut icon" href="../public/img/icon_bus.ico" type="image/x-icon">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-     crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+      type="text/css">
+
+
     <link href="../public/css/estilos.css" rel="stylesheet">
   </head>
 
 <body class="fondoLogin">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark1 fixed-top">
-        <div class="col-xl-1 col-lg-1 col-xs-8 col-sm-8">
+    
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-sm navbar-light encabezado static-top">
+        <div class="container">
+          <a href="/" class="navbar-brand text1">
+            <strong>Go</strong>
+            <img src="../public/img/icon_bus.ico" height="38px" width="38px">
+            <strong>Bus</strong>
+          </a>
+    
+          <ul class="navbar-nav">
+            <li class="nav-item text1">
+              <button type="button" class="btn btn-link" style="display:none" onclick="registrar();">Registrarme</button>
+            </li>
+            <li class="nav-item text1">
+              <a class="nav-link text1" href="/login">Iniciar Sesión</a>
+            </li>
+          </ul>
+    
+    
+    
+    
         </div>
-        <div class="col-xl-2 col-lg-2 col-xs-8 col-sm-8">
-            <a href="" style="color:red; text-decoration:none;"><h1>GO<i class="fas fa-bus"></i>BUS</h1></a>
-        </div>
-        </nav>
+      </nav>
+    
     <div class="container-fluid">
         <div class="row">
             <div id="centrado">
                 <div class="jumbotron">
                     <div>
-                        <h3>Registrarse en Go <i class="fas fa-bus"></i> Bus</h3><br>
+                        <h3>Registrese en 
+                            Go <i class="fas fa-bus" style=" color:#CF2A27"></i> Bus!..
+                        </h3><br>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group taman">
                         <div class="form-group">
                            <input class="form-control" placeholder="Nombre" name="regnom" id="regnom" type="text" required>
                         </div>
@@ -62,12 +88,54 @@
             </div>
         </div> 
     </div>
-    <main>
-        <footer class="container">
-            <p class="float-right"><a class="carrruseltext" href="#">Back to top</a></p>
-            <p>&copy; 2017-2018 GoBus. &middot; <a class="carrruseltext" href="#">Privacy</a> &middot; <a class="carrruseltext" href="#">Terms</a></p>
-        </footer>
-    </main>
+    
+         <!-- Footer -->
+  <footer class="footer bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item">
+                  <a href="#">Acerca</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Contacto</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Terminos de Uso</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Politica de Privacidad</a>
+                </li>
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">&copy; GoBus 2018. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-facebook fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-instagram fa-2x fa-fw"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
     <script src="../public/js/jquery.min.js"></script>
     <script src="../public/js/controlador.js">
     </script>

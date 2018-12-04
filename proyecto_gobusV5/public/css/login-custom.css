@@ -5,7 +5,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    background-image: url(../img/fondo.jpg);
+    background-image: url(../img/fond.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,10 +14,15 @@ body{
 
 .bus-1{
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 83%;
     font-size: 20px;
     text-decoration: none;
+    color: white;
+}
+
+
+.textowhite{
     color: white;
 }
 
@@ -36,6 +41,8 @@ body{
     position: absolute;
     margin-top: 10%;
     left: 0;
+    height: 530px;
+    width: 350px;
 }
 
 /* -------------------- Contenedor Logo -------------------- */
