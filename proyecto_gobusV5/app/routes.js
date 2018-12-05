@@ -42,7 +42,7 @@ app.get('/localizacion',isLoggedIn, function(req, res){
      user:req.user
     });
 });
-app.get('/Regislocalizacion', function(req, res){
+app.get('/Regislocalizacion',isLoggedIn, function(req, res){
     res.render('Localizacion.ejs', {
      user:req.user
     });
@@ -55,7 +55,7 @@ var bcrypt = require('bcrypt-nodejs');
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
 
-app.get('/dashboard/:codigo_empresa', function (req, res) {
+app.get('/dashboard/:codigo_empresa',isLoggedIn, function (req, res) {
     var a=req.params.codigo_empresa;
     //console.log(a);
     connection.query(`SELECT * FROM tbl_empresa_transporte WHERE cod_empresa=${a}`,
@@ -67,7 +67,7 @@ app.get('/dashboard/:codigo_empresa', function (req, res) {
         });
     });
 });
-app.get('/dashboard', function (req, res) {
+app.get('/dashboard', isLoggedIn, function (req, res) {
     connection.query("SELECT * FROM tbl_empresa_transporte",
         function(err, resul){
             //console.log(resul[0]);
@@ -77,7 +77,7 @@ app.get('/dashboard', function (req, res) {
         });
     });
 });
-app.get('/rutas2', function (req, res) {
+app.get('/rutas2', isLoggedIn, function (req, res) {
     connection.query("SELECT * FROM new_rutas",
     function(err, resul, fields){
         res.render('rutas.ejs', {
@@ -86,10 +86,17 @@ app.get('/rutas2', function (req, res) {
         });
     });
 });
-app.get('/profile/:codigo_empresa', function (req, res) {
+app.get('/profile/:codigo_empresa',isLoggedIn, function (req, res) {
     var a=req.params.codigo_empresa;
+    var b= req.user.id;
     //console.log(a);
-    connection.query(`SELECT * FROM tbl_empresa_transporte WHERE cod_empresa=${a}`,
+    connection.query(`SELECT cod_empresa,nombre_empresa,descripcion,
+                            (
+                            SELECT CONCAT( nombre_persona," " ,apellido_persona) 
+                            FROM tbl_persona WHERE cod_persona = ${b}
+                            ) AS Nombre
+                        FROM tbl_empresa_transporte 
+                        WHERE cod_empresa=${a}`,
         function(err, resul){
             console.log(resul);
         res.render('profile.ejs', {
@@ -146,7 +153,7 @@ app.post("/guardarUsua", function (req, res) {
     
 });
 
-app.get('/comprar/:cod_ruta', function (req, res) {
+app.get('/comprar/:cod_ruta', isLoggedIn, function (req, res) {
     var b=req.params.cod_ruta;
     //console.log(a);
     connection.query(`SELECT a.cod_ruta, a.cod_empresa, b.nombre_empresa, c.precio
@@ -253,7 +260,7 @@ app.post('/mostrarboleto/:codigo_compra', function (req, res) {
         });
 });
 
-app.get('/travel/:codigo_empres', function (req, res) {
+app.get('/travel/:codigo_empres', isLoggedIn, function (req, res) {
    var codigo=req.params.codigo_empres;
     connection.query(`  SELECT  c.cod_ruta, b.cod_empresa, b.nombre_empresa, c.Origen, c.Destino, c.Hora, c.Duracion AS Duracion_Hr, 			c.precio
                         FROM tbl_ruta_x_empresa a 
