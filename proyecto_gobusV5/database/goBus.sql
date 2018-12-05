@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2018 a las 04:12:13
+-- Tiempo de generación: 05-12-2018 a las 05:08:33
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gobus`
 --
+CREATE DATABASE IF NOT EXISTS `gobus` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `gobus`;
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,8 @@ INSERT INTO `tbl_compra` (`cod_compra`, `cod_usuario`, `cod_ruta`, `fecha_vencim
 (21, 44, 7, '2018-12-05', 24, 160, 123456789, 1221, 1, 160),
 (22, 44, 5, '2018-12-13', 30, 200, 1234512345, 1221, 1, 200),
 (23, 44, 2, '2018-12-06', 41.1, 274, 12345678, 2345, 2, 137),
-(24, 44, 1, '2018-12-08', 555.9, 3706, 1234567890, 8909, 34, 109);
+(24, 44, 1, '2018-12-08', 555.9, 3706, 1234567890, 8909, 34, 109),
+(25, 44, 1, '2018-12-05', 16.35, 109, 1212321, 1111, 1, 109);
 
 -- --------------------------------------------------------
 
@@ -643,7 +646,7 @@ ALTER TABLE `tbl_boleto`
 -- AUTO_INCREMENT de la tabla `tbl_compra`
 --
 ALTER TABLE `tbl_compra`
-  MODIFY `cod_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `cod_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `tbl_empleado`
 --
