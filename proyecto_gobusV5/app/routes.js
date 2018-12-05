@@ -37,7 +37,7 @@ app.get('/menu', isLoggedIn, function(req, res){
      user:req.user
     });
 });
-app.get('/localizacion', function(req, res){
+app.get('/localizacion',isLoggedIn, function(req, res){
     res.render('Localizacion.ejs', {
      user:req.user
     });
