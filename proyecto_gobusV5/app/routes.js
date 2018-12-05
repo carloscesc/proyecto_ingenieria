@@ -42,7 +42,7 @@ app.get('/localizacion',isLoggedIn, function(req, res){
      user:req.user
     });
 });
-app.get('/Regislocalizacion',isLoggedIn, function(req, res){
+app.get('/Regislocalizacion', function(req, res){
     res.render('Localizacion.ejs', {
      user:req.user
     });
@@ -60,7 +60,7 @@ app.get('/dashboard/:codigo_empresa',isLoggedIn, function (req, res) {
     //console.log(a);
     connection.query(`SELECT * FROM tbl_empresa_transporte WHERE cod_empresa=${a}`,
         function(err, resul){
-            console.log(resul);
+            //console.log(resul);
         res.render('dashboard.ejs', {
             empresas: resul,
             user:req.user
@@ -147,13 +147,14 @@ app.post("/guardarUsua", function (req, res) {
         function (error, data, fields) {
             res.send(data);
             //console.log(data);
+            
             res.end();
         }
     );
     
 });
 
-app.get('/comprar/:cod_ruta', isLoggedIn, function (req, res) {
+app.get('/comprar/:cod_ruta',isLoggedIn, function (req, res) {
     var b=req.params.cod_ruta;
     //console.log(a);
     connection.query(`SELECT a.cod_ruta, a.cod_empresa, b.nombre_empresa, c.precio
@@ -260,7 +261,7 @@ app.post('/mostrarboleto/:codigo_compra', function (req, res) {
         });
 });
 
-app.get('/travel/:codigo_empres', isLoggedIn, function (req, res) {
+app.get('/travel/:codigo_empres', isLoggedIn,  function (req, res) {
    var codigo=req.params.codigo_empres;
     connection.query(`  SELECT  c.cod_ruta, b.cod_empresa, b.nombre_empresa, c.Origen, c.Destino, c.Hora, c.Duracion AS Duracion_Hr, 			c.precio
                         FROM tbl_ruta_x_empresa a 

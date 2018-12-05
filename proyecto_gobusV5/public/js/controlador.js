@@ -30,7 +30,7 @@ $(document).ready(function(){
                         dataType: "json",
                         success: function (respuesta2) {
                             console.log(respuesta2);
-                            location.href="/Regislocalizacion";
+                            location.href="/login";
                         },
                         error: function (error2) {
                             console.error(error2);
