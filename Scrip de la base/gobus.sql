@@ -157,6 +157,16 @@ CREATE TABLE `tbl_empleado` (
 -- --------------------------------------------------------
 
 --
+
+INSERT INTO `tbl_empleado` (`cod_persona`, `tipo_empleado`, `cod_empresa`, `experiencia`, `foto`) VALUES
+(49, 2, 1, 'recomendado po su calidad de empleado y empatía', 0),
+(50, 2, 2, 'bastante', 0),
+(51, 1, 4, 'soy nueva en esto, pero puedo', 0),
+(52, 3, 1, 'trabajo con mucho gusto en mi empresa, me gusta lo que hago', 0),
+(53, 3, 3, 'Es un gusto servirle', 0);
+
+-- --------------------------------------------------------
+--
 -- Estructura de tabla para la tabla `tbl_empleado_bus`
 --
 
@@ -307,7 +317,6 @@ CREATE TABLE `tbl_persona` (
 --
 -- Volcado de datos para la tabla `tbl_persona`
 --
-
 INSERT INTO `tbl_persona` (`cod_persona`, `cod_genero`, `cod_lugar`, `telefono`, `nombre_persona`, `apellido_persona`, `edad`) VALUES
 (10, 2, NULL, '123', 'juan', 'lopez', NULL),
 (20, 1, NULL, '97654534', 'juan', 'lopez', NULL),
@@ -328,7 +337,15 @@ INSERT INTO `tbl_persona` (`cod_persona`, `cod_genero`, `cod_lugar`, `telefono`,
 (42, 1, NULL, '97654534', 'carlos', 'lopez', NULL),
 (43, 1, NULL, '97654534', 'Fran', 'lopez', NULL),
 (44, 2, NULL, '97654534', 'Ana', 'Padilla', NULL),
-(45, 1, NULL, '98564325', 'pedro', 'lopez', NULL);
+(45, 1, NULL, '98564325', 'pedro', 'lopez', NULL),
+(46, 2, NULL, '11234', 'tatiana', 'maradiaga', NULL),
+(47, 1, NULL, '12345', 'tati', 'maradia', NULL),
+(48, 1, NULL, '1235', 'tati', 'mara', NULL),
+(49, 1, NULL, NULL, 'Jose', 'Dominguez', 45),
+(50, 1, NULL, NULL, 'Luis', 'Aguilar', 38),
+(51, 2, NULL, NULL, 'Rosa ', 'A.', 25),
+(52, 1, NULL, '32451786', 'manuel', 'cruz', 45),
+(53, 2, 2, NULL, 'Rosita', 'Fresita', 38);
 
 -- --------------------------------------------------------
 
@@ -429,7 +446,11 @@ CREATE TABLE `tbl_tipo_empleado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
-
+INSERT INTO `tbl_tipo_empleado` (`cod_empleado`, `tipo_empleado`) VALUES
+(1, 1),
+(2, 2),
+(3, 1),
+(4, 2);
 --
 -- Estructura de tabla para la tabla `tbl_usuario`
 --
