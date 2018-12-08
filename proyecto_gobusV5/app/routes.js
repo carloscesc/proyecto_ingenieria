@@ -287,6 +287,16 @@ app.get('/travel/:codigo_empres', isLoggedIn,  function (req, res) {
     });
 });
 
+app.get('/empleados', function (req, res) {
+    connection.query("SELECT empleado.cod_persona, empleado.foto, persona.nombre_persona, persona.apellido_persona, persona.edad, empleado.experiencia,  empresa.nombre_empresa FROM tbl_persona AS persona INNER JOIN tbl_empleado AS empleado ON persona.cod_persona = empleado.cod_persona INNER JOIN tbl_empresa_transporte AS empresa ON empleado.cod_empresa = empresa.cod_empresa",
+    function(err, resul, fields){
+        res.render('empleado.ejs', {
+            conductores: resul,
+            user:req.user
+        });
+    });
+});
+
  app.get('/logout', function(req,res){
   req.logout();
   res.redirect('/login');
