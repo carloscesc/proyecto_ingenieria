@@ -1,18 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('#btn-registrar').click(function () {
         var id_usario;
         var parametros = `nombre=${$("#regnom").val()}&apellidos=${$("#regapell").val()}&email=${$("#regemail").val()}&password=${$("#regpassword").val()}&confpassword=${$("#confpassword").val()}&telefono=${$("#regtelefono").val()}&genero=${$("#slgen").val()}`;
         //console.log(parametros);
         var indice = document.getElementById("slgen").selectedIndex;
-        if ($("#confpassword").val()==$("#regpassword").val() &&  
-        $("#regnom").val()!="" && 
-        $("#regapell").val()!="" &&
-        $("#regemail").val()!="" &&
-        $("#regtelefono").val()!="" &&
-        indice != null  || indice != 0 
-        ){
-            document.getElementById("regpassword").style.borderColor='green';
-            document.getElementById("confpassword").style.borderColor='green';
+        if ($("#confpassword").val() == $("#regpassword").val() &&
+            $("#regnom").val() != "" &&
+            $("#regapell").val() != "" &&
+            $("#regemail").val() != "" &&
+            $("#regtelefono").val() != "" &&
+            indice != null || indice != 0
+        ) {
+            document.getElementById("regpassword").style.borderColor = 'green';
+            document.getElementById("confpassword").style.borderColor = 'green';
             $.ajax({
                 url: "/guardar",
                 method: "POST",
@@ -20,8 +20,8 @@ $(document).ready(function(){
                 dataType: "json",
                 success: function (respuesta) {
                     console.log(respuesta);
-                    id_usario=respuesta.insertId;
-                    var ingreso_usuario=`email=${$("#regemail").val()}&password=${$("#regpassword").val()}&id=${id_usario}`;
+                    id_usario = respuesta.insertId;
+                    var ingreso_usuario = `email=${$("#regemail").val()}&password=${$("#regpassword").val()}&id=${id_usario}`;
                     //console.log(ingreso_usuario);
                     $.ajax({
                         url: "/guardarUsua",
@@ -30,7 +30,7 @@ $(document).ready(function(){
                         dataType: "json",
                         success: function (respuesta2) {
                             console.log(respuesta2);
-                            location.href="/login";
+                            location.href = "/login";
                         },
                         error: function (error2) {
                             console.error(error2);
@@ -41,23 +41,23 @@ $(document).ready(function(){
                     console.error(error);
                 }
             });
-        } 
-        else if($("#regnom").val()==""){
-            document.getElementById("regnom").style.borderColor='red';
-        }else if($("#regapell").val()==""){
-            document.getElementById("regapell").style.borderColor='red';
-        }else if($("#regemail").val()==""){
-            document.getElementById("regemail").style.borderColor='red';
-        }else if($("#regpassword").val()==""){
-            document.getElementById("regpassword").style.borderColor='red';
-        }else if($("#confpassword").val()==""){
-            document.getElementById("confpassword").style.borderColor='red';
-        } else if($("#confpassword").val()!=$("#regpassword").val()){
-            document.getElementById("mostrar").style.display='block';
-        }else if($("#regtelefono").val()==""){
-            document.getElementById("regtelefono").style.borderColor='red';
-        }else if ($("#slgen").val()==""){
-            document.getElementById("slgen").style.borderColor='red';
+        }
+        else if ($("#regnom").val() == "") {
+            document.getElementById("regnom").style.borderColor = 'red';
+        } else if ($("#regapell").val() == "") {
+            document.getElementById("regapell").style.borderColor = 'red';
+        } else if ($("#regemail").val() == "") {
+            document.getElementById("regemail").style.borderColor = 'red';
+        } else if ($("#regpassword").val() == "") {
+            document.getElementById("regpassword").style.borderColor = 'red';
+        } else if ($("#confpassword").val() == "") {
+            document.getElementById("confpassword").style.borderColor = 'red';
+        } else if ($("#confpassword").val() != $("#regpassword").val()) {
+            document.getElementById("mostrar").style.display = 'block';
+        } else if ($("#regtelefono").val() == "") {
+            document.getElementById("regtelefono").style.borderColor = 'red';
+        } else if ($("#slgen").val() == "") {
+            document.getElementById("slgen").style.borderColor = 'red';
         }
 
 
@@ -66,7 +66,7 @@ $(document).ready(function(){
 
     // **********************************************************************************
 
-    $("#btn-buscar").click(function(){
+    $("#btn-buscar").click(function () {
         var parametros = `buscar=${$("#txt-buscar").val()}`;
         console.log(parametros);
         $.ajax({
@@ -74,7 +74,7 @@ $(document).ready(function(){
             method: "POST",
             data: parametros,
             dataType: "json",
-            success: function(res){
+            success: function (res) {
                 console.log(res);
                 $('#contenedor-empresas').html("");
                 $("#txt-buscar").val("");
@@ -105,7 +105,7 @@ $(document).ready(function(){
                 });
 
             },
-            error: function(error){
+            error: function (error) {
                 console.error(error);
             }
         });
@@ -113,7 +113,7 @@ $(document).ready(function(){
 
 
     // ***************************************************
-    $('#contenedor-empresas').click(function(e){
+    $('#contenedor-empresas').click(function (e) {
         var id = e.target.id;
         // alert(id); 
         var parametros = `id=${id}`;
@@ -121,13 +121,13 @@ $(document).ready(function(){
         $.ajax({
             url: "/rutas",
             method: "POST",
-            data: parametros, 
+            data: parametros,
             dataType: "json",
-            success: function(res){
+            success: function (res) {
                 console.log(res[0].cod_empresa);
-                $("#tbl"+`${res[0].cod_empresa}`).html("");
+                $("#tbl" + `${res[0].cod_empresa}`).html("");
                 res.forEach(element => {
-                    $("#tbl"+`${element.cod_empresa}`).append(
+                    $("#tbl" + `${element.cod_empresa}`).append(
                         `<tr>
                             <td>${element.Origen}</td>
                             <td>${element.Destino}</td>
@@ -138,7 +138,7 @@ $(document).ready(function(){
                 });
 
             },
-            error: function(error){
+            error: function (error) {
                 console.log(error);
             }
         });
@@ -146,36 +146,38 @@ $(document).ready(function(){
 
     //********************************************************************** */
 
-    $("#btn-conf-compra").click(function(){
-        var parametros = `Precio=${$("#precio").val()}&ruta=${$("#codigoRuta").val()}&numtarjeta=${$("#numTarjet").val()}&fecha=${$("#fechaV").val()}&csv=${$("#codigoV").val()}&cod_usuario=${$("#codigoUsuario").val()}&cant_boletos=${$("#numero-boletos").val()}`; 
-       console.log(parametros);
-         $.ajax({
-             url: "/comprarboleto",
-             method: "POST",
-             data: parametros,
-             dataType: "json",
-             success: function(res){
-                 console.log(res);
-                 id=res.insertId;
-                 console.log(id);
+    $("#btn-conf-compra").click(function () {
+        var parametros = `Precio=${$("#precio").val()}&ruta=${$("#codigoRuta").val()}&numtarjeta=${$("#numTarjet").val()}&fecha=${$("#fechaV").val()}&csv=${$("#codigoV").val()}&cod_usuario=${$("#codigoUsuario").val()}&cant_boletos=${$("#numero-boletos").val()}`;
+        console.log(parametros);
+        $.ajax({
+            url: "/comprarboleto",
+            method: "POST",
+            data: parametros,
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                id = res.insertId;
+                console.log(id);
                 $('#modal2').modal('toggle');
                 //$('#modal3').modal('show'); 
                 // $('#completo').html('Compra realizada con exito');
                 // location.href=`/mostrarboleto/${res.insertId}`;
                 $.ajax({
-                    url:`/mostrarboleto/${res.insertId}`,
+                    url: `/mostrarboleto/${res.insertId}`,
                     method: "POST",
                     dataType: "json",
-                    success: function(res){
+                    success: function (res) {
                         console.log(res[0].cant_boletos);
                         res.forEach(element => {
                             $("#tarjetas").append(
                                 `<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div >
-                                <h1 align="center"> <strong>Go
-                                <img src="../public/img/icon_bus.ico" height="38px" width="38px">
-                                Bus </strong></h1>
-                                    <h2 align="center">Empresa de Transporte ${element.nombre_empresa}</h2>
+                                     <h1 align="center" style="font-size: 2.0rem;"> <strong>Go
+                                            <img src="../public/img/icon_bus.ico" height="45px" width="40px">
+                                      Bus </strong></h1>
+                                      <h2 align="center" style="font-size: 1.85rem;">Comprobante de Pago</h2>
+                                  
+                                    <h2 align="center" style="font-size: 1.5rem;">Empresa de Transporte ${element.nombre_empresa}</h2>
                                 </div> 
                             </div>
                             <div class="row" style="    margin-left: auto;
@@ -210,61 +212,59 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>`
-        
+
                             )
                         });
-       
+
                     },
-                    error: function(error){
+                    error: function (error) {
                         console.error(error);
                     }
                 });
                 $('#modal3').modal('show');
-             },
-             error: function(error){
-                 console.error(error);
-             }
-         });
-    });
-
-        /* **********************************Esto se agrego 10 / 12 / 2018********************************************* */
-        $(document).ready(function () {
-            $('#btn-enviar').click(function () {
-                var parametros = `correo=${$("#regemail").val()}`
-                $.ajax({
-                    url: '/enviarCorreo',
-                    method: 'POST',
-                    data: parametros,
-                    dataType: 'json',
-                    success: function (res) {
-                        console.log(res);
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-            });
-        });
-
-    $(document).ready(function () {
-        $('#btn-confirmar').click(function () {
-            var parametros = `contrasena=${$("#regpassword").val()}&confirmarContrasena=${$("#confpassword").val()}`
-            $.ajax({
-                url: '/cambioContrasena',
-                method: 'POST',
-                data: parametros,
-                dataType: 'json',
-                success: function (res) {
-                    console.log(res);
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+            },
+            error: function (error) {
+                console.error(error);
+            }
         });
     });
-    /*********************************************HASTA AQUI*/
 
 
 });
-            
+/* **********************************Esto se agrego 10 / 12 / 2018********************************************* */
+$(document).ready(function () {
+    $('#btn-enviar').click(function () {
+        var parametros = `correo=${$("#regemail").val()}`
+        $.ajax({
+            url: '/enviarCorreo',
+            method: 'POST',
+            data: parametros,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $('#btn-confirmar').click(function () {
+        var parametros = `contrasena=${$("#regpassword").val()}&confirmarContrasena=${$("#confpassword").val()}`
+        $.ajax({
+            url: '/cambioContrasena',
+            method: 'POST',
+            data: parametros,
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
+    /*********************************************HASTA AQUI*/
