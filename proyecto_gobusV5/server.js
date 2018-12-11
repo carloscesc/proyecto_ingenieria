@@ -15,6 +15,7 @@ require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use(bodyParser.json());/* Esto se agrego 10/12/2018*/
 app.use(bodyParser.urlencoded({
     extended: true
 }));

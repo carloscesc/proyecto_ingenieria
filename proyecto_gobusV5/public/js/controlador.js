@@ -227,6 +227,44 @@ $(document).ready(function(){
          });
     });
 
+        /* **********************************Esto se agrego 10 / 12 / 2018********************************************* */
+        $(document).ready(function () {
+            $('#btn-enviar').click(function () {
+                var parametros = `correo=${$("#regemail").val()}`
+                $.ajax({
+                    url: '/enviarCorreo',
+                    method: 'POST',
+                    data: parametros,
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+
+    $(document).ready(function () {
+        $('#btn-confirmar').click(function () {
+            var parametros = `contrasena=${$("#regpassword").val()}&confirmarContrasena=${$("#confpassword").val()}`
+            $.ajax({
+                url: '/cambioContrasena',
+                method: 'POST',
+                data: parametros,
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+    /*********************************************HASTA AQUI*/
+
 
 });
             

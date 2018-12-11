@@ -52,8 +52,56 @@ app.get('/Regislocalizacion', function(req, res){
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
 var bcrypt = require('bcrypt-nodejs');
+var nodemailer = require('nodemailer'); /* Esto se agrego 10/12/2018*/
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
+
+    app.get('/', function (req, res) {
+        res.render('index.ejs');
+    });
+
+    /* ************************************ Esto se agrego 10 / 12 / 2018 ******************/
+    app.get('/contrasena', function (req, res) {
+        res.render('contrasena.ejs');
+    });
+
+    app.post('/enviarCorreo', function (req, res) {
+        var enviarCorreo = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'soportegobus@gmail.com',
+                pass: 'gobus1234'
+            }
+        });
+
+        var mailOptions = {
+            from: '<soportegobus@gmail.com>',
+            to: req.body.correo,
+            subject: 'Cambio de contraseña',
+            html: "Pulse aqui <a href='http://localhost:8011/contrasena'>cambio contrasena</a> para cambiar contraseña"
+        };
+
+        enviarCorreo.sendMail(mailOptions, function (error) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('El mensaje fue enviado con exito');
+            }
+        });
+    });
+
+    app.post('/cambioContrasena', function(req, res){
+        connection.query(`
+        UPDATE tbl_usuario SET ? WHERE id = id`,
+            [bcryt.hashSync(req.body.contrasena, null, null)],
+            function (error, data, fields) {
+                res.send(data);
+                res.end();
+            }
+        );
+    });
+//*********************************************HASTA AQUI***************************************************** */
+
 
 app.get('/dashboard/:codigo_empresa',isLoggedIn, function (req, res) {
     var a=req.params.codigo_empresa;
@@ -124,6 +172,9 @@ app.get('/registroUsuarios', function(req, res){
     
 });
 
+app.get('/cambiarContrasena', function (req, res) {
+    res.render('cambiar-contrasena.ejs');
+});
 
 app.post("/guardar", function (req, res) {
     connection.query(`
