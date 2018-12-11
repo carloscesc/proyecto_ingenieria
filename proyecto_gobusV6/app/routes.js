@@ -50,7 +50,7 @@ app.get('/Regislocalizacion', function(req, res){
 var mysql = require('mysql');
 var dbconfig = require('../config/database');
 var bcrypt = require('bcrypt-nodejs');
-var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer'); /* Esto se agrego 10/12/2018*/
 var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
 
@@ -58,6 +58,7 @@ connection.query('USE ' + dbconfig.database);
         res.render('index.ejs');
     });
 
+    /* ************************************ Esto se agrego 10 / 12 / 2018 ******************/
     app.get('/contrasena', function (req, res) {
         res.render('contrasena.ejs');
     });
@@ -97,6 +98,7 @@ connection.query('USE ' + dbconfig.database);
             }
         );
     });
+//*********************************************HASTA AQUI***************************************************** */
 
 app.get('/dashboard/:codigo_empresa',isLoggedIn, function (req, res) {
     var a=req.params.codigo_empresa;

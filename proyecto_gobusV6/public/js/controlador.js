@@ -220,7 +220,7 @@ $(document).ready(function(){
          });
     });
 
-    /* ******************************************************************************* */
+    /* **********************************Esto se agrego 10 / 12 / 2018********************************************* */
         $(document).ready(function () {
             $('#btn-enviar').click(function () {
                 var parametros = `correo=${$("#regemail").val()}`
@@ -239,7 +239,6 @@ $(document).ready(function(){
             });
         });
 
-    /* ******************************************************************************* */
     $(document).ready(function () {
         $('#btn-confirmar').click(function () {
             var parametros = `contrasena=${$("#regpassword").val()}&confirmarContrasena=${$("#confpassword").val()}`
@@ -257,5 +256,6 @@ $(document).ready(function(){
             });
         });
     });
+    /*********************************************HASTA AQUI*/
 });
             
