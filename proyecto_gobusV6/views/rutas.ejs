@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rutas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      position: relative; 
+  }
+  #section1 {padding-top:50px;height:800px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:800px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:800px;color: #fff; background-color: #ff9800;}
+  #section4 {padding-top:50px;height:800px;color: #fff; background-color: #00ff80;}
+  #section41 {padding-top:50px;height:800px;color: #fff; background-color: #00bcd4;}
+  #section42 {padding-top:50px;height:800px;color: #fff; background-color: #009688;}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">GoBus</a>
+      </div>
+      <div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#section1">Discovery</a></li>
+            <li><a href="#section2">Hedman Alas</a></li>
+            <li><a href="#section3">Transporte Cristina</a></li>
+            <li><a href="#section4">Sultana</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mira Mas<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#section41">Olanchana</a></li>
+                <li><a href="#section42">Transporte El Rey</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>   
+
+
+<div id="section1" class="container-fluid">
+  <h1>Discovery</h1>
+  <div class="container">
+    <h2>Discovery</h2> 
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[1].destino %></td>
+                <td><%= ruta[1].hora_salida%></td>
+                <td><%= ruta[1].servicio %></td>
+                <td><%= ruta[1].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[2].destino %></td>
+                <td><%= ruta[2].hora_salida%></td>
+                <td><%= ruta[2].servicio %></td>
+                <td><%= ruta[2].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[3].destino %></td>
+                <td><%= ruta[3].hora_salida%></td>
+                <td><%= ruta[3].servicio %></td>
+                <td><%= ruta[3].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+      <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Hora de Salida</th>
+              <th>Servicio</th>
+              <th>Hora Aproximada en llegar</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <%  { %>
+                    <tr>
+                      <td><%= ruta[4].destino %></td>
+                      <td><%= ruta[4].hora_salida%></td>
+                      <td><%= ruta[4].servicio %></td>
+                      <td><%= ruta[4].hora_llegada%></td>
+                    </tr>
+                  <% } %>
+              </tr>
+              <tr>
+                  <%  { %>
+                    <tr>
+                      <td><%= ruta[5].destino %></td>
+                      <td><%= ruta[5].hora_salida%></td>
+                      <td><%= ruta[5].servicio %></td>
+                      <td><%= ruta[5].hora_llegada%></td>
+                    </tr>
+                  <% } %>
+              </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="container">
+    <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Destino</th>
+            <th>Hora de Salida</th>
+            <th>Servicio</th>
+            <th>Hora Aproximada en llegar</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[22].destino %></td>
+                    <td><%= ruta[22].hora_salida%></td>
+                    <td><%= ruta[22].servicio %></td>
+                    <td><%= ruta[22].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[23].destino %></td>
+                    <td><%= ruta[23].hora_salida%></td>
+                    <td><%= ruta[23].servicio %></td>
+                    <td><%= ruta[23].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+        </tbody>
+      </table>
+</div>
+</div>
+
+<div id="section2" class="container-fluid">
+  <h1>Hedman Alas</h1>
+  <div class="container">
+    <h2>Hedman Alas</h2> 
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[6].destino %></td>
+                <td><%= ruta[6].hora_salida%></td>
+                <td><%= ruta[6].servicio %></td>
+                <td><%= ruta[6].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[7].destino %></td>
+                <td><%= ruta[7].hora_salida%></td>
+                <td><%= ruta[7].servicio %></td>
+                <td><%= ruta[7].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[8].destino %></td>
+                <td><%= ruta[8].hora_salida%></td>
+                <td><%= ruta[8].servicio %></td>
+                <td><%= ruta[8].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+    <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Destino</th>
+            <th>Hora de Salida</th>
+            <th>Servicio</th>
+            <th>Hora Aproximada en llegar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <%  { %>
+                <tr>
+                  <td><%= ruta[10].destino %></td>
+                  <td><%= ruta[10].hora_salida%></td>
+                  <td><%= ruta[10].servicio %></td>
+                  <td><%= ruta[10].hora_llegada%></td>
+                </tr>
+              <% } %>
+          </tr>
+          <tr>
+              <%  { %>
+                <tr>
+                  <td><%= ruta[11].destino %></td>
+                  <td><%= ruta[11].hora_salida%></td>
+                  <td><%= ruta[11].servicio %></td>
+                  <td><%= ruta[11].hora_llegada%></td>
+                </tr>
+              <% } %>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>
+
+<div id="section3" class="container-fluid">
+  <h1>Cristina</h1>
+  <div class="container">
+    <h2>Cristina</h2> 
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[12].destino %></td>
+                <td><%= ruta[12].hora_salida%></td>
+                <td><%= ruta[12].servicio %></td>
+                <td><%= ruta[12].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[13].destino %></td>
+                <td><%= ruta[13].hora_salida%></td>
+                <td><%= ruta[13].servicio %></td>
+                <td><%= ruta[13].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+      <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Hora de Salida</th>
+              <th>Servicio</th>
+              <th>Hora Aproximada en llegar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[14].destino %></td>
+                    <td><%= ruta[14].hora_salida%></td>
+                    <td><%= ruta[14].servicio %></td>
+                    <td><%= ruta[14].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[15].destino %></td>
+                    <td><%= ruta[15].hora_salida%></td>
+                    <td><%= ruta[15].servicio %></td>
+                    <td><%= ruta[15].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+<div id="section4" class="container-fluid">
+  <h1>Sultana</h1>
+  <div class="container">
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[24].destino %></td>
+                <td><%= ruta[24].hora_salida%></td>
+                <td><%= ruta[24].servicio %></td>
+                <td><%= ruta[24].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+      <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Destino</th>
+              <th>Hora de Salida</th>
+              <th>Servicio</th>
+              <th>Hora Aproximada en llegar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[19].destino %></td>
+                    <td><%= ruta[19].hora_salida%></td>
+                    <td><%= ruta[19].servicio %></td>
+                    <td><%= ruta[19].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+            <tr>
+                <%  { %>
+                  <tr>
+                    <td><%= ruta[18].destino %></td>
+                    <td><%= ruta[18].hora_salida%></td>
+                    <td><%= ruta[18].servicio %></td>
+                    <td><%= ruta[18].hora_llegada%></td>
+                  </tr>
+                <% } %>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="container">
+    <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Destino</th>
+            <th>Hora de Salida</th>
+            <th>Servicio</th>
+            <th>Hora Aproximada en llegar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <%  { %>
+                <tr>
+                  <td><%= ruta[20].destino %></td>
+                  <td><%= ruta[20].hora_salida%></td>
+                  <td><%= ruta[20].servicio %></td>
+                  <td><%= ruta[20].hora_llegada%></td>
+                </tr>
+              <% } %>
+          </tr>
+          <tr>
+              <%  { %>
+                <tr>
+                  <td><%= ruta[21].destino %></td>
+                  <td><%= ruta[21].hora_salida%></td>
+                  <td><%= ruta[21].servicio %></td>
+                  <td><%= ruta[21].hora_llegada%></td>
+                </tr>
+              <% } %>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+</div>
+
+<div id="section41" class="container-fluid">
+  <h1>Olanchana</h1>
+  <div class="container">
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[1].destino %></td>
+                <td><%= ruta[1].hora_salida%></td>
+                <td><%= ruta[1].servicio %></td>
+                <td><%= ruta[1].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+          <%  { %>
+            <tr>
+              <td><%= ruta[2].destino %></td>
+              <td><%= ruta[2].hora_salida%></td>
+              <td><%= ruta[2].servicio %></td>
+              <td><%= ruta[2].hora_llegada%></td>
+            </tr>
+          <% } %>
+      </tr>
+      <tr>
+        <%  { %>
+          <tr>
+            <td><%= ruta[3].destino %></td>
+            <td><%= ruta[3].hora_salida%></td>
+            <td><%= ruta[3].servicio %></td>
+            <td><%= ruta[3].hora_llegada%></td>
+          </tr>
+        <% } %>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div id="section42" class="container-fluid">
+  <h1>Mi Esperanza</h1>
+  <div class="container">
+      
+    <p>Estamos en los siguientes lugares:</p>            
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Destino</th>
+          <th>Hora de Salida</th>
+          <th>Servicio</th>
+          <th>Hora Aproximada en llegar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <%  { %>
+              <tr>
+                <td><%= ruta[12].destino %></td>
+                <td><%= ruta[12].hora_salida%></td>
+                <td><%= ruta[12].servicio %></td>
+                <td><%= ruta[12].hora_llegada%></td>
+              </tr>
+            <% } %>
+        </tr>
+        <tr>
+          <%  { %>
+            <tr>
+              <td><%= ruta[16].destino %></td>
+              <td><%= ruta[16].hora_salida%></td>
+              <td><%= ruta[16].servicio %></td>
+              <td><%= ruta[16].hora_llegada%></td>
+            </tr>
+          <% } %>
+      </tr>
+      <tr>
+        <%  { %>
+          <tr>
+            <td><%= ruta[12].destino %></td>
+            <td><%= ruta[12].hora_salida%></td>
+            <td><%= ruta[12].servicio %></td>
+            <td><%= ruta[12].hora_llegada%></td>
+          </tr>
+        <% } %>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
