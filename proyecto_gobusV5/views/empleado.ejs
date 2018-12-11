@@ -66,12 +66,12 @@
                 <div class="sidebar-sticky">
                   <ul class="nav flex-column">
                     <li class="nav-item active">
-                      <a href="/dashboard" class="nav-link text-light">
+                      <a href="/dashboard/<%= conductores[0].cod_empresa %>" class="nav-link text-light">
                         <i class="fas fa-building"></i> Perfil de la Empresa
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link text-light">
+                      <a href="/profile/<%= conductores[0].cod_empresa %>" class="nav-link text-light">
                         <i class="fas fa-user"></i> Perfil de usuario
                       </a>
                     </li>
@@ -91,7 +91,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link text-light">
+                      <a href="/travel/<%= conductores[0].cod_empresa %>" class="nav-link text-light">
                         <i class="fas fa-shopping-cart"></i> Comprar Ticket
                       </a>
                     </li>

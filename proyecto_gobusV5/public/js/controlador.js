@@ -124,8 +124,8 @@ $(document).ready(function(){
             data: parametros, 
             dataType: "json",
             success: function(res){
-                console.log(res[1].cod_empresa);
-                $("#tbl"+`${res[1].cod_empresa}`).html("");
+                console.log(res[0].cod_empresa);
+                $("#tbl"+`${res[0].cod_empresa}`).html("");
                 res.forEach(element => {
                     $("#tbl"+`${element.cod_empresa}`).append(
                         `<tr>
