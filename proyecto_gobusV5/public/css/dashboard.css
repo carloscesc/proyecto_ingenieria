@@ -35,6 +35,14 @@ body {
     color: black!important;
 }
 
+.text-light {
+    color: #f8f9fa!important;
+}
+a.text-light:hover { 
+    
+    color: #4CAF50!important;
+}
+
 .bg-secondary {
     background-color:rgb(9, 45, 82)!important;
 }
