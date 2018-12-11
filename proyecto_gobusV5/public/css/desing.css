@@ -18,8 +18,20 @@ header.masthead {
 .text1{
     color:white!important;
 }
+.flex-container {
+    display: flex;
+   
+    justify-content: center;
 
+  }
 
+  .flex-container > div {
+ 
+    width: 100%;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
 .text1:hover { 
     text-decoration: underline;
     color: black!important;

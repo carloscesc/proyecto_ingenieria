@@ -172,14 +172,21 @@ $(document).ready(function(){
                             $("#tarjetas").append(
                                 `<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div >
-                                    <h2>Empresa de Transporte ${element.nombre_empresa}</h2>
+                                <h1 align="center"> <strong>Go
+                                <img src="../public/img/icon_bus.ico" height="38px" width="38px">
+                                Bus </strong></h1>
+                                    <h2 align="center">Empresa de Transporte ${element.nombre_empresa}</h2>
                                 </div> 
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div >
+                            <div class="row" style="    margin-left: auto;
+                            margin-right: auto;"  >
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                     <p>Nombre: ${element.nombre}</p>
+                                </div> 
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                     <p>Fecha: ${element.fecha_vencimiento}</p>
-                                </div>            
+                                 </div>  
+                                           
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div >

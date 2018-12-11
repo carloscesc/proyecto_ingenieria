@@ -13,12 +13,13 @@
 
     <title>Go Bus</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../public/css/normalize-card.min.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="shortcut icon" href="../public/img/icon_bus.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/dashboard.css">
-    <link href="../public/css/normalize-card.min.css" type="text/css" rel="stylesheet">
+ 
     
 </head>
 <body>
@@ -97,18 +98,19 @@
     </div>
 <!--modal -->
 <!-- otro modal-->
-<div class="modal" id="modal2" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+<div class="modal" id="modal2" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" style=" padding-left: 65px;   margin-left: auto;
+        margin-right: auto;" role="document">
+          <div class="modal-content" style="    width: 411.988636px;">
             <div  class="modal-header">
               <h5 class="modal-title"><strong>Informacion de Compra</strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="    height: 392px;">
                 <div>
-                    <form>
+                    <form style="padding-left:30px;padding-right:30px">
                         <div class="paymentFormContainer">
                             <div class="messageContainer">
                             </div>
@@ -133,7 +135,7 @@
                                     <br>
                                     <input class="form-control" type="tel" data-testid="creditCardSecurityCode" class="ui-text-input medium" placeholder="Código de seguridad (CVV)" id="codigoV">
                                     <br>
-                                    <input class="form-control" type="number" id="numero-boletos" name="numero-boletos" placeholder="ingresa la cantidad de boletos a comprar">
+                                    <input class="form-control" type="number" id="numero-boletos" name="numero-boletos" placeholder="Número de boletos a comprar">
                                     <br>
                                 </div>
                             </div>
@@ -156,8 +158,9 @@
 
 
     <div class="modal" id="modal3" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
+            <div class="modal-dialog" style="padding-left: 80px;   margin-left: auto;
+            margin-right: auto;" role="document">
+              <div class="modal-content" style="    width: 381.988636px;">
                 <div class="modal-body " id="imprimir">
                         <div class="container-fluid">
                             <div class="row" id="tarjetas">
@@ -194,7 +197,7 @@
                             </div>
                         </div> -->
                 </div>
-                <div class=" modal-footer">
+                <div class=" flex-container">
                     <a class="btn btn-primary"  href="/travel/<%= rutas[0].cod_empresa %>">Regresar</a>
                     <a class="btn btn-success"  href="javascript:pruebaDivAPdf()">Ver Ticket</a>
                 </div>
@@ -202,18 +205,12 @@
             </div>
         </div>
 
-
-
-    <main>
-        <footer class="container">
-            <p class="float-right"><a class="carrruseltext" href="#">Back to top</a></p>
-            <p>&copy; 2017-2018 Go Bus. &middot; <a class="carrruseltext" href="#">Privacy</a> &middot; <a class="carrruseltext" href="#">Terms</a></p>
-        </footer>
-    </main>
     
     <script type="text/javascript" src="../public/js/jquery.min.js" ></script>
     <script type="text/javascript" src="../public/js/bootstrap.min.js" ></script>
     <script src="../public/js/controlador.js"></script>
+    
+    
     <script>
         function pruebaDivAPdf() {
             var pdf = new jsPDF('p', 'pt', 'A5');
@@ -227,9 +224,9 @@
             margins = {
                 top: 60,
                 bottom: 60,
-                left: 55,
-                right: 55,
-                width: 300
+                left: 70,
+                right: 70,
+                width: 200
             };
     
             pdf.fromHTML(
